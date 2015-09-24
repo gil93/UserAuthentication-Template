@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	skip_before_action :verify_authenticity_token, :only => [:destroy]
 	def new; end
 
 	def create
@@ -13,6 +14,6 @@ class SessionsController < ApplicationController
 
 	def destroy
   	  session[:user_id] = nil
-  	  redirect_to(root_url, format: :html)
+			redirect_to(root_url, format: :html)
 	end
 end

@@ -3,18 +3,14 @@
  <head>
   <%= stylesheet_link_tag('application', :media =>'all') %>
 </head>
-<div class="nav">
+<nav class="main">
   <% if current_user %>
-    <ul>
-      <li><%= current_user.email %></li>
-      <li><%= link_to "Log out", logout_path, { method: "delete" } %></li>
-    </ul>
+    <%= current_user.email %>
+    <%= link_to "Log out", logout_path, { method: "delete" } %></a>
   <% else %>
-    <ul>
-      <li><%= link_to "Login", 'login' %></a></li>
-      <li><%= link_to "Signup", 'signup' %></a></li>
-    </ul>
+      <%= link_to "Login", 'login' %></a>
+      <%= link_to "Signup", 'signup' %></a>
   <% end %>
-</div>
+</nav>
 <%= yield %>
 </html>
